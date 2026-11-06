@@ -1,0 +1,301 @@
+:root {
+    --paper: #f4f6f3;
+    --surface: #ffffff;
+    --ink: #14231f;
+    --muted: #5d6f69;
+    --line: #dde4e0;
+    --teal: #0f5c55;
+    --teal-dark: #0a423d;
+    --teal-tint: #e4f0ed;
+    --amber: #e8b339;
+    --danger: #b42318;
+    --danger-tint: #fdecea;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+}
+
+/* ---------- Header ---------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 20px 28px;
+    background: var(--teal);
+    color: #fff;
+    border-radius: 4px 4px 4px 28px;
+    border-top: 6px solid var(--amber);
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    margin-bottom: 24px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: 4px;
+}
+
+/* ---------- Forms ---------- */
+label {
+    display: block;
+    margin: 18px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+input {
+    width: 100%;
+    padding: 11px 12px;
+    font: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-bottom: 2px solid #b9c6c1;
+    border-radius: 4px 4px 0 0;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+input::placeholder {
+    color: #8a9a95;
+}
+
+input:focus {
+    outline: none;
+    background: #fff;
+    border-color: var(--teal);
+    border-bottom-color: var(--teal);
+    box-shadow: 0 3px 0 -1px var(--teal-tint);
+}
+
+/* Login / add / edit forms: narrow and centered */
+.container > form.card {
+    max-width: 440px;
+    margin: 40px auto;
+    padding: 32px;
+}
+
+form.card input {
+    margin-bottom: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 20px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--teal);
+    text-decoration: none;
+    background: transparent;
+    border: 1.5px solid var(--teal);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.btn:hover {
+    background: var(--teal-tint);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+}
+
+.btn.primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+.btn.danger {
+    background: transparent;
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.btn.danger:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+/* Logout button on the teal header */
+header .btn {
+    min-height: 34px;
+    padding: 0 16px;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+header .btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+form.card .actions .btn,
+form.card button[type="submit"] {
+    flex: 1;
+    margin-top: 0;
+}
+
+form.card > button[type="submit"] {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.add-btn {
+    margin-bottom: 20px;
+}
+
+/* ---------- Table ---------- */
+.card:has(table) {
+    padding: 24px 28px 12px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    background: transparent;
+    border-bottom: 2px solid var(--teal);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--teal-tint);
+}
+
+td.actions {
+    display: table-cell;
+    margin: 0;
+    white-space: nowrap;
+}
+
+td.actions .btn,
+td.actions form {
+    display: inline-flex;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+}
+
+td.actions .btn {
+    min-height: 32px;
+    padding: 0 14px;
+    font-size: 13px;
+}
+
+/* ---------- Feedback ---------- */
+.field-error {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--danger);
+}
+
+.banner {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.banner.success {
+    background: #e6f4ea;
+    color: #14532d;
+    border-left-color: #2e7d32;
+}
+
+.banner.error {
+    background: var(--danger-tint);
+    color: #7a1a12;
+    border-left-color: var(--danger);
+}
+
+/* ---------- User info / badge ---------- */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge {
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--amber);
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
