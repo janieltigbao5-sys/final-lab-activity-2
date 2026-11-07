@@ -6,10 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
 class StudentController extends Controller
 {
     /**
@@ -20,10 +16,6 @@ class StudentController extends Controller
         return response()->json(
             Student::latest()->get()
         );
-<<<<<<< HEAD
-=======
-
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
     }
 
     /**
@@ -32,7 +24,6 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-<<<<<<< HEAD
             'student_number' => 'required|string|max:50|unique:students,student_number',
             'first_name'     => 'required|string|max:255',
             'last_name'      => 'required|string|max:255',
@@ -44,17 +35,6 @@ class StudentController extends Controller
         $student = Student::create($validated);
 
         return response()->json($student, 201);
-=======
-            'name'       => 'required|string|max:255',
-            'course'     => 'required|string|max:255',
-            'year_level' => 'required|integer|min:1|max:4',
-        ]);
-
-    $student = Student::create($validated);
-
-    return response()->json($student, 201);
-
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
     }
 
     /**
@@ -71,18 +51,12 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $validated = $request->validate([
-<<<<<<< HEAD
             'student_number' => 'required|string|max:50|unique:students,student_number,' . $student->id,
             'first_name'     => 'required|string|max:255',
             'last_name'      => 'required|string|max:255',
             'email'          => 'required|email|unique:students,email,' . $student->id,
             'course'         => 'required|string|max:255',
             'year_level'     => 'required|integer|between:1,6',
-=======
-            'name'       => 'sometimes|required|string|max:255',
-            'course'     => 'sometimes|required|string|max:255',
-            'year_level' => 'sometimes|required|integer|min:1|max:6',
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
         ]);
 
         $student->update($validated);
@@ -100,9 +74,5 @@ class StudentController extends Controller
         return response()->json([
             'message' => 'Student deleted successfully.',
         ]);
-<<<<<<< HEAD
     }
-=======
-    }   
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
 }

@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-<<<<<<< HEAD
-     // POST /api/login
-=======
     // POST /api/login
->>>>>>> 90623c25677d999ba27fd6a1b20bbf7d0ade509d
     public function login(Request $request)
     {
         $validated = $request->validate([
